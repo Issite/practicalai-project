@@ -1,5 +1,5 @@
-from src.learning_test import LearningTest
+from src.agent_test import AgentTest
 
 if __name__ == "__main__":
-    test = LearningTest()
+    test = AgentTest()
     test.run()
