@@ -1,39 +1,38 @@
-from smolagents import CodeAgent, DuckDuckGoSearchTool, FinalAnswerTool, InferenceClientModel, load_tool, tool
+from smolagents import CodeAgent, InferenceClientModel, GradioUI, load_tool, tool
 import datetime
 import requests
 import pytz
 import yaml
 
 
+@tool
+def final_answer(name:str, dialogue:str)-> str:
+    """A tool that does nothing yet 
+    Args:
+        name: the name of the character saying the answer
+        dialogue: the final answer that the character is saying. This should be a concise answer to the question, and should not include any reasoning steps or tool calls. It should be the final output of the agent.
+    """
+    print(f"DEBUG: {name} says: {dialogue}")
+    return dialogue
+
+@tool
+def get_current_time_in_timezone(timezone: str) -> str:
+    """A tool that fetches the current local time in a specified timezone.
+    Args:
+        timezone: A string representing a valid timezone (e.g., 'America/New_York').
+    """
+    try:
+        # Create timezone object
+        tz = pytz.timezone(timezone)
+        # Get current time in that timezone
+        local_time = datetime.datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
+        return f"The current local time in {timezone} is: {local_time}"
+    except Exception as e:
+        return f"Error fetching time for timezone '{timezone}': {str(e)}"
+
+
 class AgentTest:
-
-    def my_custom_tool(_, arg1:str, arg2:int)-> str: # it's important to specify the return type
-        # Keep this format for the tool description / args description but feel free to modify the tool
-        """A tool that does nothing yet 
-        Args:
-            arg1: the first argument
-            arg2: the second argument
-        """
-        return "What magic will you build ?"
-
-
-    def get_current_time_in_timezone(_, timezone: str) -> str:
-        """A tool that fetches the current local time in a specified timezone.
-        Args:
-            timezone: A string representing a valid timezone (e.g., 'America/New_York').
-        """
-        try:
-            # Create timezone object
-            tz = pytz.timezone(timezone)
-            # Get current time in that timezone
-            local_time = datetime.datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
-            return f"The current local time in {timezone} is: {local_time}"
-        except Exception as e:
-            return f"Error fetching time for timezone '{timezone}': {str(e)}"
-        
-
     def run(self):
-        final_answer = FinalAnswerTool()
         model = InferenceClientModel(
             max_tokens=2096,
             temperature=0.5,
@@ -47,13 +46,13 @@ class AgentTest:
         # We're creating our CodeAgent
         agent = CodeAgent(
             model=model,
-            tools=[final_answer], # add your tools here (don't remove final_answer)
+            tools=[final_answer, get_current_time_in_timezone], # add your tools here (don't remove final_answer)
             max_steps=6,
             verbosity_level=1,
             planning_interval=None,
             name=None,
             description=None,
-            prompt_templates=prompt_templates
+            # prompt_templates=prompt_templates
         )
 
         GradioUI(agent).launch()
