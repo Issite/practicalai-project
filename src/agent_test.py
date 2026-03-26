@@ -1,6 +1,5 @@
 from smolagents import CodeAgent, InferenceClientModel, GradioUI, load_tool, tool
 import datetime
-import requests
 import pytz
 import yaml
 
