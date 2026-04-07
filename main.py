@@ -1,5 +1,5 @@
-from src.agent_test import AgentTest
+from src.rpy_generation_agent import RpyGenerationAgent
 
 if __name__ == "__main__":
-    test = AgentTest()
-    test.run()
+    agent = RpyGenerationAgent()
+    agent.run()

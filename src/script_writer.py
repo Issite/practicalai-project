@@ -1,3 +1,4 @@
+from typing import Any
 from smolagents import tool
 from src.rpy_character import RpyCharacter
 
@@ -11,24 +12,39 @@ class ScriptWriter:
 
     def __init__(
         self,
-        characters: list[RpyCharacter],
+        characters: list[str],
         plot_file: str,
         output_file: str,
-        print_mode: str = "both"
+        print_mode: str = "both",
     ):
         """
         Initializes the ScriptWriter with the given characters, plot file, and output file.
 
-        :param characters: list[RpyCharacter] - A list of RpyCharacter instances
+        :param characters: list[str] - A list of RpyCharacter filepaths
         :param plot_file: str - The path to the plot file
         :param output_file: str - The path to the output file
         """
-        self.characters = characters
+        self.characters = self._load_characters(characters)
         self.plot_file = plot_file
         self.output_file = output_file
         self.print_mode = print_mode
         self.last_speaker = None
         self.narrator_name = "Narrator"
+
+    def _load_characters(self, character_files: list[str]) -> list[RpyCharacter]:
+        """
+        Loads character information from the given character files.
+
+        :param character_files: list[str] - A list of file paths to character definition files
+        :return: list[RpyCharacter] - A list of RpyCharacter objects created from the character files
+        """
+        characters = []
+        for file in character_files:
+            with open(file, "r", encoding="utf-8") as f:
+                character_data = f.read()
+                character = RpyCharacter.from_file(character_data)
+                characters.append(character)
+        return characters
 
     def _write_lines(self, lines: list[dict]) -> None:
         """
@@ -45,14 +61,22 @@ class ScriptWriter:
                 if line["print"]:
                     print(line["line"])
 
-    @tool
-    def write_dialogue(self, character_name: str, dialogue: str) -> None:
+    def get_tools(self):
         """
-        Writes a line of dialogue for the specified character.
+        Returns a list of tools that the agent can use to write the script.
 
-        :param character_name: str - The name of the character speaking
-        :param dialogue: str - The dialogue to be spoken by the character
-        :raises ValueError: If the specified character name is not found in the characters list
+        :return: list[tool] - A list of tool functions that the agent can use
+        """
+        return [self.write_dialogue, self.sprite_action, self.present_choice]
+
+    @tool
+    def write_dialogue(self: Any, character_name: str, dialogue: str) -> None:
+        """Writes a line of dialogue for the specified character.
+        Args:
+            character_name: The name of the character speaking
+            dialogue: The dialogue to be spoken by the character
+        Raises:
+            ValueError: If the specified character name is not found in the characters list
         """
 
         if character_name not in [character.name for character in self.characters]:
@@ -67,31 +91,37 @@ class ScriptWriter:
             out_lines.append({"line": f"{dialogue}", "print": True, "write": True})
         elif self.last_speaker != character_name:
             self.last_speaker = character_name
-            out_lines.append({"line": f"show {character_name} at bob", "print": False, "write": True})
-            out_lines.append({"line": f'{character_name} "{dialogue}"', "print": True, "write": True})
+            out_lines.append(
+                {"line": f"show {character_name} at bob", "print": False, "write": True}
+            )
+            out_lines.append(
+                {"line": f'{character_name} "{dialogue}"', "print": True, "write": True}
+            )
         else:
-            out_lines.append({"line": f'{character_name} "{dialogue}"', "print": True, "write": True})
+            out_lines.append(
+                {"line": f'{character_name} "{dialogue}"', "print": True, "write": True}
+            )
 
         self._write_lines(out_lines)
 
     @tool
     def sprite_action(
-        self,
+        self: Any,
         character_name: str,
         sprite_id: str,
         action: str,
         description: str,
         value: int = None,
     ) -> None:
-        """
-        Controls the display of character sprites on screen.
-
-        :param character_name: str - The name of the character whose sprite is changing
-        :param sprite_id: str - The ID of the new sprite, often corresponding to a specific emotion or pose
-        :param action: str - The action to be performed ("show", "hide", "xpos")
-        :param value: int - An optional relative value for the action (e.g., the new x position for "xpos" action)
-        :param description: str - An optional description of the action for command line output
-        :raises ValueError: If the specified character name is not found in the characters list, if the specified sprite ID is not found for the character, or if an invalid action is provided
+        """Controls the display of character sprites on screen.
+        Args:
+            character_name: The name of the character whose sprite is changing
+            sprite_id: The ID of the new sprite, often corresponding to a specific emotion or pose
+            action: The action to be performed ("show", "hide", "xpos")
+            value: An optional relative value for the action (e.g., the new x position for "xpos" action)
+            description: An optional description of the action for command line output
+        Raises:
+            ValueError: If the specified character name is not found in the characters list, if the specified sprite ID is not found for the character, or if an invalid action is provided
         """
 
         character = next(
@@ -124,7 +154,9 @@ class ScriptWriter:
                     }
                 )
             case "hide":
-                out_lines.append({"line": f"hide {character_name}", "print": False, "write": True})
+                out_lines.append(
+                    {"line": f"hide {character_name}", "print": False, "write": True}
+                )
             case "xpos":
                 if value is None:
                     raise ValueError("Value must be provided for 'xpos' action.")
@@ -144,15 +176,13 @@ class ScriptWriter:
 
         self._write_lines(out_lines)
 
-
     @tool
-    def present_choice(self, options: list[dict], caption: str = "") -> None:
-        """
-        Presents a choice to the player.
-
-        :param options: list[dict] - A list of dictionaries, each containing a "text" key with the option text
-        and a "label" key with the label to jump to if the option is selected
-        :param caption: str - An optional caption to display above the choices
+    def present_choice(self: Any, options: list[dict], caption: str = "") -> None:
+        """Presents a choice to the player.
+        Args:
+            options: A list of dictionaries, each containing a "text" key with the option text
+                and a "label" key with the label to jump to if the option is selected
+            caption: An optional caption to display above the choices
         """
 
         out_lines = [{"line": "menu:\n", "print": False}]
@@ -171,11 +201,7 @@ class ScriptWriter:
                 )
                 option_num += 1
                 out_lines.append(
-                    {
-                        "line": f'    "{option["text"]}":',
-                        "print": False,
-                        "write": True
-                    }
+                    {"line": f'    "{option["text"]}":', "print": False, "write": True}
                 )
                 out_lines.append(
                     {
@@ -188,5 +214,7 @@ class ScriptWriter:
             raise ValueError(
                 f"Each option must contain 'text' and 'label' keys. Missing key: {e}"
             ) from e
-        
+
+        # TODO: Implement menu in print mode, also set next label.
+
         self._write_lines(out_lines)

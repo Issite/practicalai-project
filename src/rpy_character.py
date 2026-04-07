@@ -8,3 +8,12 @@ class RpyCharacter:
 
     def __init__(self):
         pass
+
+    def from_file(file_contents: str) -> "RpyCharacter":
+        """
+        Parses a character definition file and creates an RpyCharacter object.
+
+        :param file_contents: str - The contents of the character definition file
+        :return: RpyCharacter - An RpyCharacter object created from the file contents
+        """
+        return RpyCharacter() # dummy
