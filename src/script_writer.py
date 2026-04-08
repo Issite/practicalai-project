@@ -42,15 +42,15 @@ class ScriptWriter:
         for file in character_files:
             with open(file, "r", encoding="utf-8") as f:
                 character_data = f.read()
-                character = RpyCharacter.from_file(character_data)
+                character = RpyCharacter.from_json(character_data)
                 characters.append(character)
         return characters
 
-    def _write_lines(self, lines: list[dict]) -> None:
+    def _write_lines(self, lines: list[dict[str, Any]]) -> None:
         """
         Writes a list of lines to the output file and optionally prints them to the console.
 
-        :param lines: list[dict] - A list of dictionaries, each containing a "line" key with the line to write,
+        :param lines: list[dict[str, Any]] - A list of dictionaries, each containing a "line" key with the line to write,
         a "print" key indicating whether to print the line to the console,
         and a "write" key indicating whether to write the line to the output file.
         """
@@ -185,7 +185,7 @@ class ScriptWriter:
 
             out_lines = [{"line": "menu:\n", "print": False}]
             if caption:
-                out_lines.append({"line": f"{caption}", "print": True})
+                out_lines.append({"line": f"{caption}", "print": True, "write": True})
 
             try:
                 option_num = 1

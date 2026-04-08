@@ -8,3 +8,7 @@ Okay, The Plan: The AI Agent will actually have no output. It will produce scrip
 and a Profile tool.
 
 Gradio is integrated with both huggingface and smolagents so it's probably easier to use, but looking into streamlit probably isn't a terrible idea.
+
+Okay, smolagents doesn't like instance methods as tools (at least not when you're using the `@tool` decorator), so here's the workaround: create a wrapper method (like `get_tools()`) that defines UNBOUND (i.e. `self`less) methods wrapped with the `@tool` decorator. Because it's inside `get_tools()`, it has access to `self` and can use instance variables.
+
+Decided to use json instead of markdown for documents, since I realized I don't want to write a md parser.

@@ -1,3 +1,6 @@
+import json
+
+
 class RpyCharacter:
     """
     Represents a character in the Ren'py story. Contains information relevent
@@ -6,14 +9,18 @@ class RpyCharacter:
     example dialogue.
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, name: str, sprites: dict[str, str], attributes: dict[str, str]):
+        self.name = name
+        self.sprites = sprites
+        self.attributes = attributes
 
-    def from_file(file_contents: str) -> "RpyCharacter":
+    def from_json(file_contents: str) -> "RpyCharacter":
         """
         Parses a character definition file and creates an RpyCharacter object.
 
-        :param file_contents: str - The contents of the character definition file
+        :param file_contents: str - The contents of the character definition file (in JSON format)
         :return: RpyCharacter - An RpyCharacter object created from the file contents
         """
-        return RpyCharacter() # dummy
+        data = json.loads(file_contents)
+        character = RpyCharacter(data["name"], data["sprites"], data["attributes"])
+        return character
