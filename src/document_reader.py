@@ -1,5 +1,5 @@
 import json
-import markdownfrom typing import Any
+from typing import Any
 from smolagents import tool
 from typing import Any
 from smolagents import tool
@@ -28,11 +28,12 @@ class DocumentReader:
         @tool
         def get_act(act_name: str) -> str:
             """Gets a string representation of a specific act from the plot document.
-
-            :param act_name: The name of the act to retrieve.
-            :type act_name: str
-            :return: The string representation of the specified act.
-            :rtype: str
+            Args:
+                act_name: The name of the act to retrieve
+            Returns:
+                A string representation of the specified act, including the names and descriptions of the characters involved in the act
+            Raises:
+                ValueError: If the specified act name is not found in the plot document
             """
 
             with open(f"{self.directory}/plot.json", "r", encoding="utf-8") as f:
@@ -49,11 +50,12 @@ class DocumentReader:
         @tool
         def get_character_summary(character_name: str) -> str:
             """Gets a string summary of a specific character from the character documents.
-
-            :param character_name: The name of the character to retrieve.
-            :type character_name: str
-            :return: The string summary of the specified character.
-            :rtype: str
+            Args:
+                character_name: The name of the character to retrieve
+            Returns:
+                A string summary of the specified character, including their attributes and values
+            Raises:
+                ValueError: If the specified character name is not found in the character documents
             """
 
             with open(f"{self.directory}/{character_name.lower()}.json", "r", encoding="utf-8") as f:

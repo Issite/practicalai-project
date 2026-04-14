@@ -58,7 +58,7 @@ class ScriptWriter:
             """Writes a line of dialogue for the specified character.
             Args:
                 character_name: The name of the character speaking
-                dialogue: The dialogue to be spoken by the character\
+                dialogue: The dialogue to be spoken by the character
             Returns:
                 A list of dictionaries, each containing a "line" key with the line to write,
                 a "print" key indicating whether to print the line to the console,
@@ -214,13 +214,14 @@ class ScriptWriter:
 
             return out_lines
         
-        def write_lines(self, lines: list[dict[str, Any]]) -> None:
+        @tool
+        def write_lines(lines: list[dict[str, Any]]) -> None:
             """
             Writes a list of lines to the output file and optionally prints them to the console.
-
-            :param lines: list[dict[str, Any]] - A list of dictionaries, each containing a "line" key with the line to write,
-            a "print" key indicating whether to print the line to the console,
-            and a "write" key indicating whether to write the line to the output file.
+            Args:
+                lines: A list of dictionaries, each containing a "line" key with the line to write,
+                    a "print" key indicating whether to print the line to the console,
+                    and a "write" key indicating whether to write the line to the output file.
             """
             with open(self.output_file, "a", encoding="utf-8") as f:
                 for line in lines:
