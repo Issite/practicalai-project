@@ -46,21 +46,6 @@ class ScriptWriter:
                 characters.append(character)
         return characters
 
-    def _write_lines(self, lines: list[dict[str, Any]]) -> None:
-        """
-        Writes a list of lines to the output file and optionally prints them to the console.
-
-        :param lines: list[dict[str, Any]] - A list of dictionaries, each containing a "line" key with the line to write,
-        a "print" key indicating whether to print the line to the console,
-        and a "write" key indicating whether to write the line to the output file.
-        """
-        with open(self.output_file, "a", encoding="utf-8") as f:
-            for line in lines:
-                if line["write"]:
-                    f.write(line["line"] + "\n")
-                if line["print"]:
-                    print(line["line"])
-
     def get_tools(self):
         """
         Returns a list of tools that the agent can use to write the script.
@@ -69,11 +54,15 @@ class ScriptWriter:
         """
 
         @tool
-        def write_dialogue(character_name: str, dialogue: str) -> None:
+        def write_dialogue(character_name: str, dialogue: str) -> list[dict[str, Any]]:
             """Writes a line of dialogue for the specified character.
             Args:
                 character_name: The name of the character speaking
-                dialogue: The dialogue to be spoken by the character
+                dialogue: The dialogue to be spoken by the character\
+            Returns:
+                A list of dictionaries, each containing a "line" key with the line to write,
+                a "print" key indicating whether to print the line to the console,
+                and a "write" key indicating whether to write the line to the output file.
             Raises:
                 ValueError: If the specified character name is not found in the characters list
             """
@@ -101,7 +90,7 @@ class ScriptWriter:
                     {"line": f'{character_name} "{dialogue}"', "print": True, "write": True}
                 )
 
-            self._write_lines(out_lines)
+            return out_lines
 
         @tool
         def sprite_action(
@@ -110,7 +99,7 @@ class ScriptWriter:
             action: str,
             description: str,
             value: int = None,
-        ) -> None:
+        ) -> list[dict[str, Any]]:
             """Controls the display of character sprites on screen.
             Args:
                 character_name: The name of the character whose sprite is changing
@@ -118,6 +107,10 @@ class ScriptWriter:
                 action: The action to be performed ("show", "hide", "xpos")
                 value: An optional relative value for the action (e.g., the new x position for "xpos" action)
                 description: An optional description of the action for command line output
+            Returns:
+                A list of dictionaries, each containing a "line" key with the line to write,
+                a "print" key indicating whether to print the line to the console,
+                and a "write" key indicating whether to write the line to the output file.
             Raises:
                 ValueError: If the specified character name is not found in the characters list, if the specified sprite ID is not found for the character, or if an invalid action is provided
             """
@@ -172,15 +165,19 @@ class ScriptWriter:
 
             out_lines.append({"line": f"{description}", "print": True, "write": False})
 
-            self._write_lines(out_lines)
+            return out_lines
 
         @tool
-        def present_choice(options: list[dict], caption: str = "") -> None:
+        def present_choice(options: list[dict], caption: str = "") -> list[dict[str, Any]]:
             """Presents a choice to the player.
             Args:
                 options: A list of dictionaries, each containing a "text" key with the option text
                     and a "label" key with the label to jump to if the option is selected
                 caption: An optional caption to display above the choices
+            Returns:
+                A list of dictionaries, each containing a "line" key with the line to write,
+                a "print" key indicating whether to print the line to the console,
+                and a "write" key indicating whether to write the line to the output file.
             """
 
             out_lines = [{"line": "menu:\n", "print": False}]
@@ -215,6 +212,21 @@ class ScriptWriter:
 
             # TODO: Implement menu in print mode, also set next label.
 
-            self._write_lines(out_lines)
+            return out_lines
         
-        return [write_dialogue, sprite_action, present_choice]
+        def write_lines(self, lines: list[dict[str, Any]]) -> None:
+            """
+            Writes a list of lines to the output file and optionally prints them to the console.
+
+            :param lines: list[dict[str, Any]] - A list of dictionaries, each containing a "line" key with the line to write,
+            a "print" key indicating whether to print the line to the console,
+            and a "write" key indicating whether to write the line to the output file.
+            """
+            with open(self.output_file, "a", encoding="utf-8") as f:
+                for line in lines:
+                    if line["write"]:
+                        f.write(line["line"] + "\n")
+                    if line["print"]:
+                        print(line["line"])
+
+        return [write_dialogue, sprite_action, present_choice, write_lines]
