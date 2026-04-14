@@ -46,7 +46,7 @@ class ScriptWriter:
                 characters.append(character)
         return characters
 
-    def get_tools(self):
+    def get_tools(self) -> list[Any]:
         """
         Returns a list of tools that the agent can use to write the script.
 
