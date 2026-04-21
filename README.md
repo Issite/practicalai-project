@@ -19,7 +19,7 @@ The agent leverages the `smolagents` framework with large language models to cre
   - `huggingface_hub` - Model access and inference
   - `smolagents` - Agentic framework
   - `dotenv` - Environment configuration
-  - `pytz` - Timezone handling
+  - `pytz` - Timezone handling (Only used in early tests, not critical)
   - `chromadb` - Vector database for RAG
 
 ## Installation
