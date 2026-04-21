@@ -2,3 +2,4 @@ huggingface_hub
 dotenv
 smolagents
 pytz
+chromadb
