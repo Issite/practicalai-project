@@ -3,8 +3,6 @@ import json
 import chromadb
 from typing import Any
 from smolagents import tool
-from typing import Any
-from smolagents import tool
 
 class DocumentReader:
     """A class for reading documents from a specified directory."""
@@ -31,8 +29,8 @@ class DocumentReader:
             acts = [f"{k}: {v}" for k, v in plot_data.get("acts", {}).items()]
             self.collection.add(
                 documents=[header] + acts,
-                ids=["plot"],
-                metadatas=[{"type": "plot"}]
+                ids=["plot_0"] + [f"act_{i}" for i in range(len(acts))],
+                metadatas=[{"type": "plot", "subtype": "description"}] + [{"type": "plot", "subtype": "act"} for _ in acts]
             )
         
         # Load character documents
@@ -45,8 +43,8 @@ class DocumentReader:
                     attributes = [f"{k}: {v}" for k, v in character_data.get("attributes", {}).items()]
                     self.collection.add(
                         documents=[header] + attributes,
-                        ids=[character_name],
-                        metadatas=[{"type": "character"}]
+                        ids=[f"{character_name}_0"] + [f"{character_name}_{i}" for i in range(len(attributes))],
+                        metadatas=[{"type": "character", "subtype": "description"}] + [{"type": "character", "subtype": "attribute"} for _ in attributes]
                     )
 
     def get_tools(self) -> list[Any]:
@@ -139,4 +137,9 @@ class DocumentReader:
                     raise ValueError(f"Attribute '{attribute_name}' not found for character '{character_name}'.")
             return value
 
-        return [get_act, get_character_summary, get_character_attributes, get_character_attribute]
+        return [
+            get_act,
+            get_character_summary,
+            get_character_attributes,
+            get_character_attribute
+        ]
