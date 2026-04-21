@@ -1,0 +1,43 @@
+{
+    "tools": [
+        "get_act",
+        "get_character_summary",
+        "get_character_attributes",
+        "get_character_attribute",
+        "write_dialogue",
+        "sprite_action",
+        "present_choice",
+        "write_lines",
+        "final_answer"
+    ],
+    "model": {
+        "class": "HfApiModel",
+        "data": {
+            "max_tokens": 2048,
+            "temperature": 0.7,
+            "last_input_token_count": null,
+            "last_output_token_count": null,
+            "model_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
+            "custom_role_conversions": null
+        }
+    },
+    "prompt_templates": {
+        "system_prompt": "prompts.yaml"
+    },
+    "max_steps": 8,
+    "verbosity_level": 1,
+    "grammar": null,
+    "planning_interval": null,
+    "name": "Story Agent",
+    "description": "An agent that generates Ren'Py script content for 'The Trial' visual novel",
+    "authorized_imports": [
+        "json",
+        "os",
+        "re",
+        "itertools",
+        "datetime",
+        "random",
+        "math",
+        "statistics"
+    ]
+}
