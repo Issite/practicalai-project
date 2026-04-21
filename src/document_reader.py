@@ -136,10 +136,29 @@ class DocumentReader:
                 if value is None:
                     raise ValueError(f"Attribute '{attribute_name}' not found for character '{character_name}'.")
             return value
+        
+        @tool
+        def get_character_sprites(character_name: str) -> list[str]:
+            """Gets a list of sprite image paths for a specific character from the character documents.
+            Args:
+                character_name: The name of the character to retrieve
+            Returns:
+                A list of sprite keys for the specified character,
+                which can then be used in the sprite_action() tool.
+            Raises:
+                ValueError: If the specified character name is not found in the character documents
+            """
+            with open(f"{self.directory}/{character_name.lower()}.json", "r", encoding="utf-8") as f:
+                character_data = json.load(f)
+                sprites = character_data.get("sprites")
+                if sprites is None:
+                    raise ValueError(f"Character '{character_name}' not found in the character documents.")
+            return list(sprites.keys())
 
         return [
             get_act,
             get_character_summary,
             get_character_attributes,
-            get_character_attribute
+            get_character_attribute,
+            get_character_sprites
         ]
