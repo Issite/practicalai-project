@@ -66,6 +66,14 @@
       ValueError if the character name or attribute name is not found
     Usage: Use this to get specific character details (e.g., personality traits, background info, emotional state)
   
+  - **contextual_query(query: str) -> str**
+    Performs a semantic search across plot and character documents to find relevant information.
+    Args:
+      - query: A natural language query string (e.g., "What does Andy know about the banner?", "Timeline of the power outage")
+    Returns:
+      A string containing relevant excerpts from documents, formatted by type (plot, character, attribute)
+    Usage: Use this to search for thematic connections, timeline details, or character relationships without knowing exact document structure
+  
   ### Script Writing Tools
   These tools allow you to compose the actual script content:
   
