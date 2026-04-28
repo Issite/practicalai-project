@@ -8,7 +8,13 @@ class RpyGenerationAgent:
         print("RpyGenerationAgent is running.")
 
         script_writer = ScriptWriter(
-            ["data/stories/trial/alice.json", "data/stories/trial/bob.json"],
+            [
+                "data/stories/trial/andy.json",
+                "data/stories/trial/casey.json",
+                "data/stories/trial/jamie.json",
+                "data/stories/trial/thalia.json",
+                "data/stories/trial/sam.json",
+                "data/stories/trial/mr. preston.json"],
             "data/stories/trial/plot.json",
             "output/script.rpy",
             print_mode="both"

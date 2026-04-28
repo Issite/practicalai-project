@@ -1,5 +1,6 @@
 {
     "tools": [
+        "get_starting_message",
         "get_act",
         "get_character_summary",
         "get_character_attributes",

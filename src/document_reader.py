@@ -30,7 +30,7 @@ class DocumentReader:
             acts = [f"{k}: {v}" for k, v in plot_data.get("acts", {}).items()]
             self.collection.add(
                 documents=[header] + acts,
-                ids=["plot_0"] + [f"act_{i}" for i in range(len(acts))],
+                ids=["plot_0"] + [f"act_{i+1}" for i in range(len(acts))],
                 metadatas=[{"type": "plot", "subtype": "description"}] + [{"type": "plot", "subtype": "act"} for _ in acts]
             )
         
@@ -44,7 +44,7 @@ class DocumentReader:
                     attributes = [f"{k}: {v}" for k, v in character_data.get("attributes", {}).items()]
                     self.collection.add(
                         documents=[header] + attributes,
-                        ids=[f"{character_name}_0"] + [f"{character_name}_{i}" for i in range(len(attributes))],
+                        ids=[f"{character_name}_0"] + [f"{character_name}_{i+1}" for i in range(len(attributes))],
                         metadatas=[{"type": "character", "subtype": "description"}] + [{"type": "character", "subtype": "attribute"} for _ in attributes]
                     )
 
@@ -55,6 +55,13 @@ class DocumentReader:
         :return: A list of tool functions that the agent can use to read documents.
         :rtype: list[Any]
         """
+
+        @tool
+        def get_starting_message() -> str:
+            """Returns the "starting_message" field from the plot document, which provides an introduction to the story and sets the initial scene for the narrative."""
+            with open(f"{self.directory}/plot.json", "r", encoding="utf-8") as f:
+                plot_data = json.load(f)
+                return plot_data.get("starting_message", "No starting message available.")
 
         @tool
         def get_act(act_name: str) -> str:
@@ -171,6 +178,7 @@ class DocumentReader:
             return output.strip()
 
         return [
+            get_starting_message,
             get_act,
             get_character_summary,
             get_character_attributes,

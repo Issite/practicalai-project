@@ -1,5 +1,6 @@
 {
     "name": "The Trial",
+    "starting_message": "You stand in the club room as everyone settles into their seats around the mock courtroom. Mr. Preston, the club's faculty leader and today's judge, calls for order. The club banner—the one with the \"defaced\" portraits—sits on display as evidence. All eyes turn to you. You're the defense attorney for Andy, your best friend, and the trial is about to begin.",
     "description": "The Trial is a lighthearted, comedic story about a club putting one of their members on a mock trial for \"defacing\" the club's banner. The player takes the role of the defence attourney, helping their best friend Andy, the defendant, to avoid being found guilty. The story is split into three acts: The opening, the interruption, and the closing. Below is a description of the plot for each act.",
     "acts": {
         "the opening": {

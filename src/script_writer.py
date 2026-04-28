@@ -67,7 +67,7 @@ class ScriptWriter:
                 ValueError: If the specified character name is not found in the characters list
             """
 
-            if character_name not in [character.name for character in self.characters]:
+            if character_name != self.narrator_name and character_name not in [character.name for character in self.characters]:
                 raise ValueError(
                     f"Character '{character_name}' not found in characters list."
                 )
