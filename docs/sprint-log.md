@@ -13,12 +13,12 @@ Mostly just realizing that at this stage instead of writing code to make progres
 - **Goals**: My main goal is to improve my RAG with ChromaDB (rag-lab should be a big help), and to make a comprehensive system prompt (in that order since I'd like to make the system prompt after all the tools are done). I think I can leave most of the plot/character documents until after the presentation, since I can keep it simple for the demo. That means this sprint can finish all the little bits and peices of the system, then the overnext sprint can compose everything together.
 - **Work products**: I'd like to see `src/document_reader.py` at least double in size, with vector store/query functionality. I'll also create `data/agent/prompts.yaml` with my system prompt, including tool examples and instructions for how the agent should use them. If I have time, I can also start filling out some of the character documents, but that's not a priority for this sprint.
 
-## Sprint Two: April 14 - April 21:
+### Sprint Two: April 14 - April 21:
 
 #### Work done:
 - Completed rag-lab, and started ChromaDB integration
 - Generated a comprehensive system prompt with Copilot (Which gave me some interesting feedback on what I should work on next - see docs/copilot.md)
-- Created more direct-search tools for querying character information (get_characterattributes`, `get_character_attribute()`, etc.) Still need to implement vector search from rag-lab though.
+- Created more direct-search tools for querying character information (`get_characterattributes()`, `get_character_attribute()`, etc.) Still need to implement vector search from rag-lab though.
 
 #### Challenges and setbacks:
 None, really? rag-lab was having some weird issues with venv and imports so I mostly did it "read-only", but that's not directly related to work on this project. I also think I need to test more that what I have is working, but I've been trying to push towards the demo so I might have some technical debt going forward. Hopefully not but we'll see.

@@ -4,6 +4,7 @@ import chromadb
 from typing import Any
 from smolagents import tool
 
+
 class DocumentReader:
     """A class for reading documents from a specified directory."""
 
@@ -154,11 +155,26 @@ class DocumentReader:
                 if sprites is None:
                     raise ValueError(f"Character '{character_name}' not found in the character documents.")
             return list(sprites.keys())
+        
+        @tool
+        def contextual_query(query: str) -> str:
+            """Performs a contextual query on the ChromaDB collection to retrieve relevant information based on the query string.
+            Args:
+                query: The query string to search for in the documents
+            Returns:
+                A string containing the relevant information retrieved from the documents based on the query
+            """
+            results = self.collection.query(query_texts=[query], n_results=5)
+            output = ""
+            for doc, metadata in zip(results["documents"][0], results["metadatas"][0]):
+                output += f"{metadata['type'].capitalize()} ({metadata['subtype']}):\n{doc}\n\n"
+            return output.strip()
 
         return [
             get_act,
             get_character_summary,
             get_character_attributes,
+            contextual_query,
             get_character_attribute,
             get_character_sprites
         ]

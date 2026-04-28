@@ -26,8 +26,8 @@ The agent leverages the `smolagents` framework with large language models to cre
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd project
+git clone <repository-url> rpy-visual-novel-agent
+cd rpy-visual-novel-agent
 ```
 
 2. Create and activate a virtual environment:
@@ -39,6 +39,11 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 3. Install dependencies:
 ```bash
 pip install -r requirements.txt
+```
+
+4. Set up environment variables (e.g., Hugging Face API key) in a `.env` file:
+```bash
+HUGGINGFACE_API_KEY=your_huggingface_api_key
 ```
 
 ## Usage
@@ -150,6 +155,6 @@ This project is part of the Practical AI course (Spring 2026).
 
 ## References
 
-- [Ren'Py Documentation](https://www.renpy.org/)
+- [Ren'Py Documentation](https://www.renpy.org/doc/html/)
 - [smolagents Framework](https://github.com/agentic-ai/smolagents)
-- [Retrieval-Augmented Generation](https://en.wikipedia.org/wiki/Prompt_engineering#Retrieval-augmented_generation)
+- [Retrieval-Augmented Generation](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)
