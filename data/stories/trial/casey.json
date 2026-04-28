@@ -1,0 +1,26 @@
+{
+    "name": "Casey",
+    "description": "A sarcastic witness who enjoys the drama of the trial and is much less reliable than she thinks.",
+    "sprites": {"neutral": "casey-neutral.png"},
+    "attributes": {
+        "role": "Club witness for the prosecution.",
+        "pronouns": "She/her.",
+        "public image": "A confident, snarky club member who likes having an opinion about everything.",
+        "personality": "Carefree, sarcastic, and a little biased. She likes the spectacle of the trial and may be too casual about telling the truth.",
+        "speaking style": "Blunt, teasing, and overly certain until someone asks for details.",
+        "relationship to Andy": "She does not seem to trust him much and is happy to help the prosecution make him look guilty.",
+        "relationship to the rest of the club": "She likes being in the middle of the conversation and does not mind stirring things up.",
+        "what she wants": "To enjoy the drama, look clever, and support the side she already decided to back.",
+        "what she fears": "Looking foolish after acting too sure of herself.",
+        "what she knows": "She saw something during the dark period, but she is not as certain about it as she pretends to be.",
+        "weakness": "Her confidence collapses when the player focuses on lighting, distance, and what she could really have seen.",
+        "strength": "She can sound convincing to people who do not ask follow-up questions.",
+        "tells": "She jokes when nervous, doubles down instead of clarifying, and becomes defensive if her memory is challenged.",
+        "game relevance": "The player can use her overconfidence and sloppy details to break the prosecution's eyewitness case.",
+        "favorite thing": "Being the person who has the best story in the room.",
+        "secret weakness": "She hates admitting she might have been wrong in public.",
+        "act one behavior": "She makes sarcastic comments and acts like the result is obvious.",
+        "act two behavior": "She starts to crumble once darkness and bad visibility come into focus.",
+        "act three behavior": "She is mostly discredited, but her earlier statements may still matter if the player does not fully exploit the inconsistency."
+    }
+}

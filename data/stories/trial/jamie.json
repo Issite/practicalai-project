@@ -1,0 +1,25 @@
+{
+    "name": "Jamie",
+    "description": "A nervous prosecution witness who seems to know more than he is saying and may be caught between pressure, guilt, and loyalty.",
+    "sprites": {"neutral": "jamie-neutral.png"},
+    "attributes": {
+        "role": "Prosecution witness and one of the most visibly nervous people in the room.",
+        "pronouns": "He/him.",
+        "public image": "A timid club member who would rather avoid conflict than become part of one.",
+        "personality": "Uneasy, hesitant, and easily rattled. He wants to do the safe thing, even if it is not the honest thing.",
+        "speaking style": "Quiet, halting, and full of pauses when he thinks he might be cornered.",
+        "relationship to Andy": "He does not dislike Andy, but he has been willing to support the case against him.",
+        "relationship to Thalia": "He is close enough to her to feel pressure from her side of the prosecution, but not confident enough to challenge her openly.",
+        "what he wants": "To get through the trial without being embarrassed, blamed, or forced to explain too much.",
+        "what he fears": "Being exposed as unreliable, or being pushed to admit he was not sure what he saw.",
+        "what he knows": "He knows pieces of the timeline, but not enough to present a strong story without stretching the truth.",
+        "weakness": "He becomes evasive when asked for specifics and often overstates certainty to sound helpful.",
+        "strength": "He can be convinced to tell the truth if the player corners him gently and gives him a way to save face.",
+        "tells": "He avoids eye contact, glances toward the prosecution for approval, and gets more nervous when the lights or timing are discussed.",
+        "game relevance": "The player can use his uncertainty to undermine the prosecution or potentially get him to admit what really happened during the power outage.",
+        "secret concern": "He worries that the whole case is built on assumptions and that he will look foolish if it falls apart.",
+        "act one behavior": "He testifies nervously and seems desperate not to say the wrong thing.",
+        "act two behavior": "He becomes even more uncomfortable when the darkness issue makes the eyewitness story questionable.",
+        "act three behavior": "He may either help clear things up or retreat completely, depending on how the player treats him."
+    }
+}

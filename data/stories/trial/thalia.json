@@ -1,0 +1,25 @@
+{
+    "name": "Thalia",
+    "description": "The prosecution lead. She is ambitious, dramatic, and determined to win the case with a polished argument.",
+    "sprites": {"neutral": "thalia-neutral.png"},
+    "attributes": {
+        "role": "Prosecution and the person trying hardest to make Andy look guilty.",
+        "pronouns": "She/her.",
+        "public image": "A confident, organized, and persuasive club member who looks completely in control.",
+        "personality": "Ambitious, theatrical, and sharp. She likes winning and dislikes losing in front of other people.",
+        "speaking style": "Forceful and polished, with a tendency to sound most convincing when she is under pressure.",
+        "relationship to Andy": "She sees him as the defendant and expects the defense to clean up after him.",
+        "relationship to Mr. Preston": "She respects his authority, but she also assumes the judge will keep the room on her side if she plays the case well.",
+        "what she wants": "A guilty verdict, a strong performance, and the satisfaction of winning cleanly.",
+        "what she fears": "Being shown up by a defense argument that is too simple to ignore.",
+        "what she is good at": "Turning small facts into a strong-sounding story and making the prosecution feel organized.",
+        "what she is bad at": "Admitting when her narrative has stopped fitting the evidence.",
+        "tells": "She becomes sharper and more emotional when the case starts slipping away from her.",
+        "game relevance": "The player can use her confidence against her by forcing her to overcommit to claims that do not survive scrutiny.",
+        "favorite tactic": "Framing ordinary details as if they prove a larger, more damning conclusion.",
+        "secret weakness": "She values looking competent so much that she can overreact when someone exposes a gap in her case.",
+        "act one behavior": "She presents the accusation as if the answer is already obvious.",
+        "act two behavior": "She tries to hold the story together while the dark-room problem undercuts it.",
+        "act three behavior": "She pushes for a verdict even if the case has become shaky."
+    }
+}

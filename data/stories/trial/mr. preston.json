@@ -1,0 +1,26 @@
+{
+    "name": "Mr. Preston",
+    "description": "The club's faculty leader and the judge for the mock trial. He is polished, playful, and far more responsible-looking than he really is.",
+    "sprites": {"neutral": "mr_preston-neutral.png"},
+    "attributes": {
+        "role": "Judge and the secret prankster who edited the banner file before it was printed.",
+        "pronouns": "He/him.",
+        "public image": "A composed faculty advisor who believes structure keeps club events from spiraling into chaos.",
+        "hidden truth": "He digitally added the silly mustaches and glasses as a harmless joke, then expected the printed banner to be taken in good fun.",
+        "personality": "Patient, dryly funny, and quietly controlling. He likes to appear amused even when he is steering the room.",
+        "speaking style": "Formal when the room is tense, but fond of dad jokes and playful phrasing when he wants to lighten the mood.",
+        "relationship to Andy": "He is Andy's judge in the trial and the person most responsible for Andy being blamed in the first place.",
+        "relationship to the club": "Respected as an authority figure, but also treated like the adult who can be teased safely.",
+        "what he wants": "To keep the trial orderly, preserve his reputation, and avoid admitting that his prank caused the whole mess.",
+        "what annoys him": "People making a scene, public embarrassment, and any question that suggests he mishandled the banner.",
+        "what he is good at": "Running meetings, keeping people talking, and redirecting attention when he needs to.",
+        "what he is bad at": "Owning up to mistakes before they become obvious.",
+        "tells": "He gets a little too casual whenever the discussion gets close to the banner file, the printer, or the power outage.",
+        "game relevance": "If the player presses him carefully, he can reveal how the banner was produced, whether he saw the file before printing, and why he avoids talking about the digital version.",
+        "favorite excuse": "It was just a joke and nobody was supposed to take it seriously.",
+        "secret worry": "If people learn he started the whole thing, they will stop trusting his judgment as a leader.",
+        "act one behavior": "He opens the trial confidently and tries to make the accusation sound minor.",
+        "act two behavior": "He becomes more defensive when the darkness and eyewitness problems start breaking the prosecution's story.",
+        "act three behavior": "He tries to maintain control even if the defense starts closing in on the truth."
+    }
+}

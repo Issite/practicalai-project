@@ -4,6 +4,7 @@
         "get_character_summary",
         "get_character_attributes",
         "get_character_attribute",
+        "contextual_query",
         "write_dialogue",
         "sprite_action",
         "present_choice",

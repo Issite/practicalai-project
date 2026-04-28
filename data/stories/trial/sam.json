@@ -1,0 +1,25 @@
+{
+    "name": "Sam",
+    "description": "A neutral juror who cares about evidence, timing, and fairness more than drama.",
+    "sprites": {"neutral": "sam-neutral.png"},
+    "attributes": {
+        "role": "Neutral jury member and one of the best sources of reason in the room.",
+        "pronouns": "He/him.",
+        "public image": "A level-headed club member who listens carefully before deciding anything.",
+        "personality": "Logical, calm, and fair-minded. He prefers evidence over assumptions and dislikes performative arguments.",
+        "speaking style": "Measured and precise, usually asking short questions that get right to the point.",
+        "relationship to Andy": "He is not personally close to Andy, but he is willing to give him a fair hearing.",
+        "relationship to the prosecution": "He is skeptical of any claim that does not line up with the timeline.",
+        "what he wants": "To vote honestly and avoid condemning someone without solid proof.",
+        "what he fears": "Being part of a rushed or unfair verdict.",
+        "what he is good at": "Spotting contradictions, noticing timeline problems, and asking the question nobody else thinks to ask.",
+        "what he is bad at": "Playing along with emotional manipulation or social pressure.",
+        "tells": "He folds his notes, re-reads details, and pauses whenever a claim sounds too convenient.",
+        "game relevance": "The player can rely on him for reasonable doubt, and he can amplify points about the darkness, the banner's origin, and the weakness of eyewitness testimony.",
+        "favorite topic": "How something actually happened, not just who sounds most convincing.",
+        "secret habit": "He mentally reconstructs events in order, which makes him hard to fool.",
+        "act one behavior": "He asks thoughtful questions and listens closely.",
+        "act two behavior": "He immediately notices that the power outage changes what the witnesses could have seen.",
+        "act three behavior": "He becomes a quiet anchor for the defense during deliberation."
+    }
+}

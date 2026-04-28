@@ -129,9 +129,10 @@ class ScriptWriter:
                 )
 
             if sprite_id not in character.sprites:
-                raise ValueError(
+                """raise ValueError(
                     f"Sprite ID '{sprite_id}' not found for character '{character_name}'."
-                )
+                )"""
+                pass # No sprites yet
 
             out_lines = []
 

@@ -1,0 +1,27 @@
+{
+    "name": "Andy",
+    "description": "The defendant and the player's best friend. He is genuinely innocent of defacing the banner, but his memory of the setup makes him look suspicious.",
+    "sprites": {"neutral": "andy-neutral.png"},
+    "attributes": {
+        "role": "Defendant and the player's closest friend.",
+        "pronouns": "He/him.",
+        "public image": "A well-meaning but somewhat absent-minded club member who is often in the wrong place at the wrong time.",
+        "true situation": "He hung the banner during a power outage and did not notice that the file had already been altered.",
+        "personality": "Friendly, loyal, and a little oblivious. He tends to speak before he fully thinks things through.",
+        "speaking style": "Nervous, informal, and a little self-deprecating when he feels under pressure.",
+        "relationship to the player": "Best friends. He trusts the player completely and expects them to help him.",
+        "relationship to Mr. Preston": "He respects Mr. Preston as an authority figure but is confused by how serious the accusation has become.",
+        "what he wants": "To be declared not guilty and to go back to normal without losing face in front of the club.",
+        "what he fears": "Looking guilty because of his own poor wording or forgetfulness rather than because he actually did anything wrong.",
+        "what he knows": "He knows he put the banner up in the dark, but he does not realize that detail is the key to proving his innocence.",
+        "weakness": "He gets flustered easily and may accidentally say something that sounds incriminating.",
+        "strength": "He is honest once someone asks the right question, and he has no real motive to lie about the banner.",
+        "tells": "He laughs when he is stressed, avoids eye contact when embarrassed, and becomes more animated when the player supports him.",
+        "game relevance": "The player can use his memory of the power outage, his confusion about the banner, and his loyalty to help build reasonable doubt.",
+        "favorite comfort": "Someone calmly explaining what is happening instead of assuming the worst.",
+        "secret frustration": "He hates that his own forgetfulness is making everyone assume the worst about him.",
+        "act one behavior": "He looks worried and keeps trying to explain that he only handled the banner once.",
+        "act two behavior": "He starts to relax when the darkness argument makes sense.",
+        "act three behavior": "He waits anxiously for the player to finish proving he could not have been the one who defaced the banner."
+    }
+}
