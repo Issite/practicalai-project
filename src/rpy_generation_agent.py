@@ -1,4 +1,5 @@
 from smolagents import CodeAgent, InferenceClientModel, GradioUI
+import yaml
 from src.script_writer import ScriptWriter
 from src.document_reader import DocumentReader
 
@@ -29,6 +30,9 @@ class RpyGenerationAgent:
             custom_role_conversions=None,
         )
 
+        with open("data/agent/prompts.yaml", 'r', encoding='utf-8') as stream:
+            prompt_templates = yaml.safe_load(stream)
+
         agent = CodeAgent(
             model=model,
             code_block_tags=("```python", "```"),
@@ -38,6 +42,7 @@ class RpyGenerationAgent:
             planning_interval=None,
             name=None,
             description=None,
+            prompt_templates=prompt_templates
         )
 
         # Dev deploymment. I need to build my own user-focused front-end
