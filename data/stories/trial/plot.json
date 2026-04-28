@@ -3,7 +3,200 @@
     "description": "The Trial is a lighthearted, comedic story about a club putting one of their members on a mock trial for \"defacing\" the club's banner. The player takes the role of the defence attourney, helping their best friend Andy, the defendant, to avoid being found guilty. The story is split into three acts: The opening, the interruption, and the closing. Below is a description of the plot for each act.",
     "acts": {
         "the opening": {
-            "description": "The story begins with the club members gathering in a room, preparing for the trial. The club's faculty leader Mr. Preston is the judge, and the club members are the jury. Mr. Preston explains the charges against Andy, who is accused of defacing the club's banner by drawing \"mustaches and silly glasses\" over the portraits of club members."
+            "description": "The story begins with the club members gathering in a room, preparing for the trial. The club's faculty leader Mr. Preston is the judge, and the club members are the jury. Mr. Preston explains the charges against Andy, who is accused of defacing the club's banner by drawing \"mustaches and silly glasses\" over the portraits of club members. What no one knows yet is that Mr. Preston himself digitally added the doodles to the banner file before it was sent to the printer as a harmless prank—and Andy, oblivious as always, hung the banner in the dark last week during a power outage without realizing the changes had been made. As the defence attorney, you must navigate the opening statements while managing various conflicting personalities and uncovering the true circumstances behind the \"vandalism.\" The tension rises as witnesses begin to reveal inconsistencies in their accounts, and political factions within the club become apparent.",
+            "themes": [
+                "friendship",
+                "loyalty",
+                "humor",
+                "deception",
+                "justice"
+            ],
+            "choices": [
+                {
+                    "choice": "During the prosecutor's opening statement, witness Jamie appears visibly nervous and avoids eye contact. Do you interrupt with a procedural objection to rattle them early, or let them finish to observe their behavior and identify their tells?",
+                    "options": [
+                        "Interrupt immediately - establish dominance and make Jamie uncomfortable",
+                        "Allow them to finish - gather information and identify inconsistencies"
+                    ],
+                    "impact": "This choice affects jury perception of your character and Jamie's emotional state during testimony. Early pressure may backfire if the jury thinks you're being unfair, but patience may reveal crucial lies."
+                },
+                {
+                    "choice": "When testifying, Andy starts making subtly incriminating statements that the prosecution may pick up on. Do you cut off his line of thought to prevent further harm, despite it possibly looking guilty?",
+                    "options": [
+                        "Cut him off - protect him from self-incrimination but risk seeming controlling",
+                        "Let him speak - allow him to express himself but risk giving the prosecution more ammunition"
+                    ],
+                    "impact": "This choice affects how the jury perceives Andy's credibility and your ability to manage your client's testimony. Cutting him off may save him from saying something damaging, but it could also make you seem like you're trying to hide something or that Andy is not in control of his own defense."
+                }
+            ],
+            "characters": {
+                "Mr. Preston": {
+                    "role": "Judge / Secret culprit",
+                    "goal": "Preside over a fair trial while ensuring his harmless prank remains hidden; find it amusing that Andy is being blamed",
+                    "actions_in_act": "Opens the trial formally, enforces courtroom procedures, makes occasional dad jokes about the defacement, subtly guides questioning away from digital evidence, seems unusually relaxed about the severity of the charges",
+                    "personality": "Appears fair-minded and playful on the surface, but harbors amusement at the situation. Values the club's harmony but lacks foresight about the consequences of his prank. Protective of his own reputation as a trusted adult."
+                },
+                "Andy": {
+                    "role": "Defendant / Your best friend / Unwitting scapegoat",
+                    "goal": "Be found not guilty and prove their innocence while protecting their friendship with you",
+                    "actions_in_act": "Sits nervously in the defendant's chair, genuinely confused about the defacement, insists they didn't touch the banner after hanging it in the dark last week, seems oblivious to how they could have caused damage they didn't commit, occasionally makes eye contact with allies in the jury",
+                    "personality": "Loyal friend, somewhat oblivious to details, genuinely bewildered by the accusations, prone to nervous laughter when stressed, completely innocent of the actual crime but their vagueness about their memory of hanging the banner makes them look suspicious"
+                },
+                "Jamie": {
+                    "role": "Prosecution's lead witness",
+                    "goal": "Establish that Andy damaged the banner, possibly to protect someone else or advance a hidden agenda",
+                    "actions_in_act": "Testifies hesitantly with nervous mannerisms, contradicts themselves once when pressed, avoids looking at Andy, frequently glances nervously at other jury members",
+                    "personality": "Appears unreliable or intimidated; body language suggests he knows more than he's saying"
+                },
+                "Sam": {
+                    "role": "Neutral jury member / potential ally",
+                    "goal": "Find the truth and vote fairly based on evidence",
+                    "actions_in_act": "Takes notes during testimony, asks thoughtful clarifying questions, appears skeptical of both prosecution and Jamie's credibility, seems sympathetic to Andy but unwilling to bias his judgment",
+                    "personality": "Logical, fair-minded, values evidence and honesty, could be swayed either direction by strong arguments"
+                },
+                "Casey": {
+                    "role": "Club member / witness for prosecution",
+                    "goal": "Have fun with the trial while supporting the prosecution's case, possibly due to personal bias against Andy",
+                    "actions_in_act": "Claims to have seen Andy writing with marker on the banner the night he put it up, doesn't take the trial seriously at all, makes sarcastic comments during testimony, seems more interested in the drama than the outcome",
+                    "personality": "Carefree, biased, enjoys the spectacle of the trial"
+                },
+                "Thalia": {
+                    "role": "Prosecution",
+                    "goal": "Convince the jury of Andy's guilt while maintaining a professional demeanor",
+                    "actions_in_act": "Delivers a passionate opening statement, presents Jamie and Casey as key witnesses, tries to discredit the defense's arguments",
+                    "personality": "Ambitious, persuasive, gets carried away by the drama of the trial, may overreach in her zeal to win"
+                }
+            },
+            "setting": "A club room in a school converted into a mock courtroom, with desks arranged in a U-shape. Fluorescent lights create a formal atmosphere undercut by casual club decorations still visible on the walls.",
+            "foreshadows": [
+                "At some point Thalia will say \"There's no way he didn't see any changes on the banner.\", which the user can debate during act two when the lights go out",
+                "Mr. Preston sometimes undercuts the seriousness of the trial, which hints he may do other things - like digitally alter the banner file - for amusement",
+                "Casey's claim is touted by her as \"the only solid proof there is and the only solid proof you need\", which, when it's called into question in the next act, causes a big moment of doubt for the jury and a shift in momentum towards the defense",
+                "The banner is not present at the trial, so no one can tell the defacement was printed, not drawn. If the player thinks to ask about this, Mr. Preston claims it's in the storage room and he doesn't want to go through the hassle of asking for a key card"
+            ]
+        },
+        "the interruption": {
+            "description": "As the trial intensifies and the defense begins to uncover inconsistencies in the prosecution's case, the power suddenly cuts out a second time, plunging the courtroom into darkness. This coincidence triggers a critical realization: if Andy couldn't see the banner clearly when hanging it in the dark during the previous power outage, how could he have deliberately added detailed doodles with marker? Furthermore, when the lights return and Casey is pressed for details about their testimony, their account falls apart under scrutiny—they admit they were also in near-complete darkness when they claim to have witnessed Andy defacing the banner. The jury's confidence in the prosecution begins to crack as the defense seizes on these revelations. Mr. Preston attempts to maintain control of the proceedings while Jamie and Alex exchange increasingly panicked glances. The stakes rise as it becomes clear that the case may hinge on whether the jury believes Casey's testimony or the emerging evidence that the defacement must have occurred before the banner was even hung.",
+            "themes": [
+                "doubt and uncertainty",
+                "the unreliability of eyewitness testimony",
+                "the power of circumstantial evidence",
+                "the unraveling of false narratives"
+            ],
+            "choices": [
+                {
+                    "choice": "When the power goes out, Andy realizes that the electronic lock on the storage room closet should be open. He wants to go get it, but you worry he could get in trouble for going in a restricted area. Do you let him go and risk a potential infraction?",
+                    "options": [
+                        "Let him go - the banner is crucial evidence and this could be a game-changer",
+                        "Stop him - it's too risky and could backfire if he gets caught"
+                    ],
+                    "impact": "Allowing Andy to retrieve the banner could provide undeniable proof of his innocence, but it also risks disciplinary action that could sway the jury against him. Stopping him maintains the status quo but misses an opportunity to present critical evidence that could dismantle the prosecution's case."
+                },
+                {
+                    "choice": "Casey's testimony crumbles when confronted about the darkness. Do you push aggressively to get them to admit they lied, or do you allow them to save face while the jury draws their own conclusions?",
+                    "options": [
+                        "Push hard - force a confession and humiliation to discredit their entire testimony",
+                        "Be merciful - let them stumble and contradict themselves while maintaining your professionalism"
+                    ],
+                    "impact": "Aggressive cross-examination wins the moment but may alienate jury members who feel sympathy for Casey. A measured approach lets the jury see the truth without you appearing cruel, potentially earning more respect."
+                }
+            ],
+            "characters": {
+                "Mr. Preston": {
+                    "role": "Judge / Secret culprit",
+                    "goal": "Maintain control of the trial while dealing with the power outage; becoming increasingly nervous as evidence points toward the truth",
+                    "actions_in_act": "Restores order after the power outage, tries to minimize its significance, shows signs of discomfort as the defense makes connections about the darkness, makes unsuccessful attempts to redirect the jury's attention",
+                    "personality": "His facade of amusement cracks as he realizes his prank may be exposed. Becomes defensive and controlling, attempting to protect his reputation while maintaining his authority as judge."
+                },
+                "Andy": {
+                    "role": "Defendant / Your best friend / Unwitting scapegoat",
+                    "goal": "Begin to feel vindication as the jury's perception shifts toward reasonable doubt",
+                    "actions_in_act": "Visibly relaxes as Casey's testimony falls apart, makes more natural eye contact with jury members, seems to gain confidence that the truth is emerging, occasionally nods or gestures to reinforce points the defense makes",
+                    "personality": "Relief and cautious hope mix with lingering concern about whether the jury will fully believe him. His genuine confusion about the accusations is now being validated."
+                },
+                "Jamie": {
+                    "role": "Prosecution's witness / Conflicted party",
+                    "goal": "Navigate the unraveling case while protecting themselves and their complicated position",
+                    "actions_in_act": "Claims Andy made a joke about the banner potentially being ruined, but can't provide details; becomes increasingly evasive and nervous",
+                    "personality": "Nervous and conflicted, Jamie is caught between loyalty to the prosecution and the growing evidence that Andy is innocent. He grows more anxious as the case unravels."
+                },
+                "Sam": {
+                    "role": "Neutral jury member / potential ally",
+                    "goal": "Follow the logic of the evidence as it emerges",
+                    "actions_in_act": "Latches onto the darkness argument immediately, asks pointed questions about Casey's ability to see anything in the dark, actively takes notes on the timeline of the power outages, begins to shift body language to signal doubt in the prosecution's case",
+                    "personality": "His logical nature makes him the perfect conduit for the defense's evidence. He becomes increasingly vocal in challenging the prosecution's logic, potentially influencing other jury members."
+                },
+                "Casey": {
+                    "role": "Club member / witness for prosecution",
+                    "goal": "Maintain her testimony under cross-examination, but lack the conviction to do so when pushed",
+                    "actions_in_act": "Initially stands by her claim of seeing Andy, but quickly backtracks when asked about the lighting conditions, admits to being 'pretty sure' rather than certain, eventually confesses she was also in darkness and cannot actually verify what she saw, becomes embarrassed and defensive",
+                    "personality": "Not a skilled liar and not truly invested in the outcome beyond the drama. Breaks under pressure because her testimony was never solid to begin with. Her collapse becomes a turning point in the trial."
+                },
+                "Thalia": {
+                    "role": "Prosecution",
+                    "goal": "Salvage the prosecution's case as it crumbles",
+                    "actions_in_act": "Attempts to repair Casey's testimony, tries to refocus the jury on other evidence, becomes visibly frustrated as the defense gains momentum, may resort to emotional appeals or personal attacks on the defense attorney",
+                    "personality": "The ambitious prosecutor's confidence wavers as her carefully constructed case falls apart. She struggles between maintaining professionalism and desperation to win."
+                }
+            },
+            "setting": "The same club room courtroom",
+            "foreshadows": [
+                "The second power outage is revealed to be coincidental, but it provides the perfect metaphorical and literal backdrop for questioning eyewitness reliability",
+                "Mr. Preston's increasing nervousness hints that he is the true culprit and fears exposure. His attempts to control the narrative become more obvious",
+                "Jamie's continued inner conflict suggests he may become a key witness if convinced to tell the truth in the final act",
+                "Casey's complete collapse as a witness opens the door for the jury to reconsider everything about the prosecution's case",
+                "The growing support from Sam and other reasonable jury members suggests the verdict is no longer certain, setting up the final act as a battle for hearts and minds"
+            ]
+        },
+        "the conclusion": {
+            "description": "With the prosecution's case significantly weakened and the jury fractured between those who believe Andy's innocence and those still clinging to the original narrative, the trial reaches its final stage. The verdict is no longer a foregone conclusion, but rather depends entirely on the choices the defense attorney makes in this final stretch. Various paths are available: the defense can push for a full truth by pressing Mr. Preston about his knowledge of the banner's creation, can appeal to Jamie's sense of justice to finally tell the truth, can work with Sam and other sympathetic jury members to build a strong reasonable doubt case, or can attempt to counter the remaining opposition on the jury. The outcome is fluid and depends on the player's strategy, moral choices, and ability to navigate the final arguments and jury deliberations.",
+            "themes": [
+                "consequences of choices",
+                "the power of truth",
+                "friendship and loyalty tested",
+                "justice and accountability"
+            ],
+            "choices": [],
+            "characters": {
+                "Mr. Preston": {
+                    "role": "Judge / Defendant (if exposed)",
+                    "goal": "Either successfully hide his involvement or face consequences depending on player action",
+                    "actions_in_act": "Maintains judicial control but appears increasingly cornered; may make mistakes that reveal guilt if pushed, or may successfully deflect if the defense doesn't pursue the evidence",
+                    "personality": "His playful facade completely gone; he is now entirely focused on self-preservation"
+                },
+                "Andy": {
+                    "role": "Defendant / Your best friend",
+                    "goal": "Achieve acquittal and restore their reputation",
+                    "actions_in_act": "Awaits the jury's decision with hope but anxiety; their fate depends entirely on the jury's final deliberations and vote",
+                    "personality": "Grateful for your defense; the ordeal has revealed who truly stands by them"
+                },
+                "Jamie": {
+                    "role": "Prosecution's witness / Possible whistleblower",
+                    "goal": "Either remain silent and complicit or finally tell the truth",
+                    "actions_in_act": "May confess to knowing more than he's revealed if approached correctly by the defense, or may remain loyal to whoever coerced him into lying",
+                    "personality": "At a crossroads: conscience versus consequences"
+                },
+                "Sam": {
+                    "role": "Jury member / Ally",
+                    "goal": "Vote based on evidence and reason",
+                    "actions_in_act": "Becomes an advocate for reasonable doubt during jury deliberations; his voice carries weight with other jurors who respect his logic",
+                    "personality": "Steadfast in seeking truth, becoming a natural leader among jury members"
+                },
+                "Casey": {
+                    "role": "Club member / Discredited witness",
+                    "goal": "Move past the embarrassment of their failed testimony",
+                    "actions_in_act": "No longer an active participant; their credibility is destroyed, making them irrelevant to the final outcome",
+                    "personality": "Deflated and humiliated; possibly relieved to be out of the spotlight"
+                },
+                "Thalia": {
+                    "role": "Prosecution",
+                    "goal": "Salvage a guilty verdict or gracefully accept defeat",
+                    "actions_in_act": "Delivers closing arguments attempting to rebuild the prosecution's narrative; may show integrity by accepting the weakness of the case or may double down on desperation",
+                    "personality": "Learns a lesson in hubris and the importance of solid evidence over convenient narratives"
+                }
+            },
+            "setting": "The courtroom during final arguments and jury deliberations. The atmosphere is tense and uncertain, reflecting the genuine ambiguity of the verdict before the jury reaches a decision.",
+            "foreshadows": []
         }
     }
 }
